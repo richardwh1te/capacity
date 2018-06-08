@@ -1,2 +1,2 @@
-# capacity
-Generic storage sizing tool
+# expanse
+a generic storage capacity sizer
