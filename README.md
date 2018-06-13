@@ -1,2 +1,2 @@
 # expanse
-a generic storage capacity sizer
+a platform agnostic sizer for storage capacity.
