@@ -12,6 +12,43 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    var flag;
+    var TBr; var TBu; var TBe; var TiBr; var TiBu; var TiBe;
+    function updateVals(){
+      if(flag=="TBr"){
+        TBr = $("input.TBr").text();
+        TiBr=TBr*(1000/1024)^4;
+        TiBu=TiBr*.8;
+        TBu =TiBu*(1024/1000)^4;
+        TiBe=TiBu*4;
+        TBe =TiBe*(1024/1000)^4;
+      }
+      if(flag=="TBu"){ TBu = $("input.TBu").text(); }
+      if(flag=="TBe"){ TBr = $("input.TBe").text(); }
+      if(flag=="TiBr"){ TBr = $("input.TiBr").text(); }
+      if(flag=="TiBu"){ TBr = $("input.TiBu").text(); }
+      if(flag=="TiBe"){ TBr = $("input.TiBe").text(); }
+      $("input.TBr").text(TBr);
+      $("input.TBu").text(TBu);
+      $("input.TBe").text(TBe);
+      $("input.TiBr").text(TiBr);
+      $("input.TiBu").text(TiBu);
+      $("input.TiBe").text(TiBe);
+      }
+      alert("FLAG");
+    }
+    $(document).ready(function(){
+      $("input.TBr").keypress(function(){ flag="TBr"; updateVals(); });
+      $("input.TBu").keypress(function(){ flag="TBu"; updateVals(); });
+      $("input.TBe").keypress(function(){ flag="TBe"; updateVals(); });
+      $("input.TiBr").keypress(function(){ flag="TiBr"; updateVals(); });
+      $("input.TiBu").keypress(function(){ flag="TiBu"; updateVals(); });
+      $("input.TiBe").keypress(function(){ flag="TiBe"; updateVals(); });
+    });
+    </script>
+
   </head>
 
 
@@ -21,97 +58,42 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" style="color:white;"><b>expanse</b> | a platform agnostic sizer for storage capacity</a>
-<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>-->
     </nav>
 
     <main role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Hello, world!</h1>
-          <p>This show is just getting started. More to follow.</p>
-        </div>
       </div>
 
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2>Raw - Marketing</h2>
-            <p>Summation of the product of the individual drive types multiplied by their individual published capacities.</p>
+            <h3>Raw - Marketing</h3>
+            <p><input type="text" class="TBr" /> TBr</p>
           </div>
           <div class="col-md-4">
-            <h2>Usable - Marketing</h2>
-            <p>Conversion of TiBu to base 10.</p>
+            <h3>Usable - Marketing</h3>
+            <p><input type="text" class="TBu" /> TBu</p>
           </div>
           <div class="col-md-4">
-            <h2>Effective - Marketing</h2>
-            <p>Conversion of TiBe to base 10.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <p><input type="text" /> TBr</p>
-          </div>
-          <div class="col-md-4">
-            <p><input type="text" /> TBu</p>
-          </div>
-          <div class="col-md-4">
-            <p><input type="text" /> TBe</p>
+            <h3>Effective - Marketing</h3>
+            <p><input type="text" class="TBe" /> TBe</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <h2>Raw - Engineering</h2>
-            <p>Summation of the product of the individual drive types multiplied by their individual actual capacities.</p>
+            <h3>Raw - Engineering</h3>
+            <p><input type="text" class="TiBr" /> TiBr</p>
           </div>
           <div class="col-md-4">
-            <h2>Usable - Engineering</h2>
-            <p>Potential physical capacity that can be stored on the formatted system after mirroring or parity. Can also account for buffer space.</p>
+            <h3>Usable - Engineering</h3>
+            <p><input type="text" class="TiBu" /> TiBu</p>
           </div>
           <div class="col-md-4">
-            <h2>Effective - Engineering</h2>
-            <p>Potential logical capacity that can be stored on a system before data reduction. (Ex: deduplication, compression, thin provisioning.)</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <p><input type="text" /> TiBr</p>
-          </div>
-          <div class="col-md-4">
-            <p><input type="text" /> TiBu</p>
-          </div>
-          <div class="col-md-4">
-            <p><input type="text" /> TiBe</p>
+            <h3>Effective - Engineering</h3>
+            <p><input type="text" class="TiBe" /> TiBe</p>
           </div>
         </div>
 
